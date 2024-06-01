@@ -1,0 +1,30 @@
+.header {
+	background: #0067A3;
+	color: #fff;
+    font-size: 28px;
+    font-family: 'Roboto-Regular', serif;
+	display: flex;
+	align-items: center;
+    justify-content: space-between;
+	padding: 0 20px;
+}
+.menu
+{
+    display: flex;
+
+}
+
+.avatar {
+	width: 40px;
+    height: 40px;
+    background-color: #0067A3;
+	margin-right: 15px;
+}
+
+.avatar {
+	width: 40px;
+    height: 40px;
+    background-color: #0067A3;
+	margin-right: 15px;
+}
+
