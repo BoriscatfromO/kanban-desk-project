@@ -19,15 +19,6 @@
 	font-style: italic;
 }
 
-.status {
-	color: #fff;
-	background: #465571;
-	font-weight: bold;
-	margin: 0;
-	padding: 8px 20px;
-	border-radius: 20px;
-}
-
 .label {
 	margin-bottom: 10px;
 }
@@ -38,8 +29,9 @@
 }
 
 .homeLink {
-	display: block;
-	margin: 20px 0;
+	display: flex;
+    justify-content: flex-end;
+	margin:  0;
 	text-decoration: none;
 	color: #737373;
 }

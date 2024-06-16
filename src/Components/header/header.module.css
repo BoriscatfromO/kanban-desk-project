@@ -7,11 +7,11 @@
 	align-items: center;
     justify-content: space-between;
 	padding: 0 20px;
+	position: relative;
 }
 .menu
 {
-    display: flex;
-
+    display: flex
 }
 
 .avatar {
@@ -20,11 +20,50 @@
     background-color: #0067A3;
 	margin-right: 15px;
 }
-
-.avatar {
-	width: 40px;
-    height: 40px;
-    background-color: #0067A3;
-	margin-right: 15px;
+.arrow
+{
+	width: 24px;
+    height: 24px;
+	margin: 0;
 }
+.vector
+{
+	width: 14px;
+    height: 14px;
+	margin: 0;	
+}
+.button
+{
+background-color: #0067A3;
+border: none;
+cursor: pointer;
+}
+.menu__list {
+	margin: 0;
+	width: 100%;
+	padding: 0;
+	list-style-type: none;
+	color: black;
+  }
+.menu.active 
+{
+	transform: translateY(0);
+	opacity: 1;
+	visibility: visible;
+  }
+  .menu__item {
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	cursor: pointer;
+  }
 
+.dropdownmenu 
+{
+	position: absolute;
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 7px;
+	margin-top: 50px;
+	padding: 5px;
+}
