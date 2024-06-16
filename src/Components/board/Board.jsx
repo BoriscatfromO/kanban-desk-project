@@ -26,7 +26,6 @@ const Board = (props) => {
                 const options = listTasks[index-1]
                 console.log (options)
                 return (
-                    <List key={type} type={type} title={LIST_COPY[type]} tasks={listTasks || []} addNewTask={addNewTask}/>
                     <List key={type} type={type} title={LIST_COPY[type]} tasks={listTasks || []} addNewTask={addNewTask} options={options}/>
                 )
             }
