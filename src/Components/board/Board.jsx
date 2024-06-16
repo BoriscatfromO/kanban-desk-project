@@ -16,7 +16,6 @@ const Board = (props) => {
 		}
 		setTasks([...tasks, newTask]);
 	}
-		
  
 
     return (
