@@ -3,19 +3,30 @@ import { Link } from 'react-router-dom'
 import { LIST_TYPES, LIST_COPY } from '../../config'
 import FormAddNewTask from '../forms/FormAddNewTask'
 import css from './list.module.css'
-import Selectmenu from '../selectmenu/selectmenu'
+
 
 const List = props => {
-	const {type, title, tasks, addNewTask, options} = props
+	const {type, title, tasks, addNewTask, setTasks} = props
 	const [isFormVisible, setFormVisible] = useState(false)
 	
 	const handleAddNewClick = () => {
 		setFormVisible(!isFormVisible)
 	}
-	console.log (tasks)
+
+	const handleChange = (e) => {
+		const newStatus = e.target.value
+		const updatedTasks = tasks.map(task => {
+				return {...task, status: newStatus}
+		})
+		setTasks(updatedTasks)
+	}
+
+	console.log(Object.values(LIST_TYPES))
+
+	
 return (
 		<div className={css.list}>
-			<h2 className={css.listTitle}>{title}</h2>
+			<h2 className={css.listTitle}>{LIST_COPY[type]}</h2>
 			{tasks.map (task=> {
 				return (
 					<Link to={`/tasks/${task.id}`} key={task.id} className={css.taskLink}>
@@ -26,7 +37,7 @@ return (
 				)
 			})}
  			<button onClick={handleAddNewClick} className={css.addButton}>+ Add new task</button>
-
+			
 			{(title === 'Backlog') ? (
 			<>
 			{isFormVisible && (<FormAddNewTask  addNewTask={addNewTask} />)}
@@ -34,9 +45,12 @@ return (
 		    ):(
 			<>
 			{isFormVisible && (       
-			<select className={css.select}>
-		   {Object.values(LIST_TYPES).map(list => {
-						return <option key={list} value={options}>{options}</option>
+			<select className={css.select} onChange={handleChange}>
+			<option>Select task</option>
+		   {tasks
+		   .filter(task=> Object.values(LIST_TYPES).indexOf(task.status) < Object.values(LIST_TYPES).indexOf(LIST_COPY[type]))
+		   .map(task => {
+						return <option key={task.id} value={task.id}>{task.title}</option>
 					})}
 		    </select>)}
 			</>
