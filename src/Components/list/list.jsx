@@ -6,7 +6,7 @@ import css from './list.module.css'
 
 
 const List = props => {
-	const {type, title, tasks, addNewTask, setTasks} = props
+	const {type, title, Alltasks, listTasks, addNewTask, setTasks} = props
 	const [isFormVisible, setFormVisible] = useState(false)
 	
 	const handleAddNewClick = () => {
@@ -15,7 +15,7 @@ const List = props => {
 
 	const handleChange = (e) => {
 		const newStatus = e.target.value
-		const updatedTasks = tasks.map(task => {
+		const updatedTasks = Alltasks.map(task => {
 				return {...task, status: newStatus}
 		})
 		setTasks(updatedTasks)
@@ -27,7 +27,7 @@ const List = props => {
 return (
 		<div className={css.list}>
 			<h2 className={css.listTitle}>{LIST_COPY[type]}</h2>
-			{tasks.map (task=> {
+			{listTasks.map (task=> {
 				return (
 					<Link to={`/tasks/${task.id}`} key={task.id} className={css.taskLink}>
 					<div key={task.id} className={css.task}>
@@ -44,10 +44,10 @@ return (
 			</>
 		    ):(
 			<>
-			{isFormVisible && (       
+			{isFormVisible && (        
 			<select className={css.select} onChange={handleChange}>
 			<option>Select task</option>
-		   {tasks
+		   {Alltasks
 		   .filter(task=> Object.values(LIST_TYPES).indexOf(task.status) < Object.values(LIST_TYPES).indexOf(LIST_COPY[type]))
 		   .map(task => {
 						return <option key={task.id} value={task.id}>{task.title}</option>

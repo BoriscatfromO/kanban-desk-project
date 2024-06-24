@@ -23,7 +23,7 @@ const Board = (props) => {
             {Object.values(LIST_TYPES).map(type => {
                 const listTasks = tasks.filter(task => task.status === type)
                 return (
-                    <List key={type} type={type} title={LIST_COPY[type]} tasks={listTasks || []} addNewTask={addNewTask}/>
+                    <List key={type} type={type} title={LIST_COPY[type]} Alltasks={tasks} listTasks={listTasks || []} addNewTask={addNewTask}/>
                 )
             }
             )
