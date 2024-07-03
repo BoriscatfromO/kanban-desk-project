@@ -2,4 +2,5 @@
 	background: #57a6d3;
 	padding: 20px;
 	flex-grow: 1;
+	max-width: 100%;
 }

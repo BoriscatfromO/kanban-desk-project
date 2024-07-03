@@ -12,6 +12,8 @@
 
 .title {
 	margin: 0;
+	font-size: 24px;
+	font-family: 'Roboto-Regular', serif;
 }
 
 .createdAt {
@@ -46,4 +48,18 @@
 
 .emptyStateIcon {
 	width: 200px;
+}
+
+.textarea
+{
+	background: #fff;
+	border-radius: 8px;
+	border: #fff;
+	resize: none;
+	padding: 20px;
+	display: block;
+	font-size: 18px;
+	font-family: 'Roboto-Regular', serif;
+	height: 548px;
+	width: 95%;
 }

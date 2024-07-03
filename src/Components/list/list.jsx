@@ -6,27 +6,16 @@ import css from './list.module.css'
 
 
 const List = props => {
-	const {type, title, Alltasks, listTasks, addNewTask, setTasks} = props
+	const {type, title, Alltasks, listTasks, addNewTask, setTasks, handleChange} = props
 	const [isFormVisible, setFormVisible] = useState(false)
 	
 	const handleAddNewClick = () => {
 		setFormVisible(!isFormVisible)
 	}
 
-	const handleChange = (e) => {
-		const newStatus = e.target.value
-		const updatedTasks = Alltasks.map(task => {
-				return {...task, status: newStatus}
-		})
-		setTasks(updatedTasks)
-	}
-
-	console.log(Object.values(LIST_TYPES))
-
-	
 return (
 		<div className={css.list}>
-			<h2 className={css.listTitle}>{LIST_COPY[type]}</h2>
+			<h2 className={css.listTitle}>{type}</h2>
 			{listTasks.map (task=> {
 				return (
 					<Link to={`/tasks/${task.id}`} key={task.id} className={css.taskLink}>
@@ -36,26 +25,26 @@ return (
 					</Link>
 				)
 			})}
- 			<button onClick={handleAddNewClick} className={css.addButton}>+ Add new task</button>
-			
-			{(title === 'Backlog') ? (
+ 			<button onClick={handleAddNewClick} className={css.addButton}>+ Add card</button>
+			{isFormVisible &&
 			<>
-			{isFormVisible && (<FormAddNewTask  addNewTask={addNewTask} />)}
-			</>
-		    ):(
+			{type === LIST_TYPES.BACKLOG && <FormAddNewTask  addNewTask={addNewTask} />}
+			</> }
+				<div className={css.selectform}>
+			{isFormVisible && 
 			<>
-			{isFormVisible && (        
+			{Object.values(LIST_TYPES).indexOf(type) > 0 && (        
 			<select className={css.select} onChange={handleChange}>
 			<option>Select task</option>
 		   {Alltasks
-		   .filter(task=> Object.values(LIST_TYPES).indexOf(task.status) < Object.values(LIST_TYPES).indexOf(LIST_COPY[type]))
-		   .map(task => {
-						return <option key={task.id} value={task.id}>{task.title}</option>
-					})}
+		   .filter(task=> Object.values(LIST_TYPES).indexOf(task.status) < Object.values(LIST_TYPES).indexOf(type))
+		   .map(task => (
+					 <option className={css.option} key={task.id} value={task.id}>{task.title}</option>
+					))}
 		    </select>)}
-			</>
-			)}
-			
+		    </>
+             } 
+			 </div>
 		</div>
 	)
 }

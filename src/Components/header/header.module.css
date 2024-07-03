@@ -6,12 +6,17 @@
 	display: flex;
 	align-items: center;
     justify-content: space-between;
-	padding: 0 20px;
+	padding: 5px 20px;
 	position: relative;
 }
 .menu
 {
     display: flex
+}
+.title
+{
+	font-size: 28px;
+    font-family: 'Roboto-Regular', serif;
 }
 
 .avatar {
@@ -22,15 +27,17 @@
 }
 .arrow
 {
-	width: 24px;
-    height: 24px;
+	width: 14px;
+    height: 14px;
 	margin: 0;
+	padding: 0;
 }
 .vector
 {
 	width: 14px;
     height: 14px;
 	margin: 0;	
+	padding: 0;
 }
 .button
 {
@@ -66,4 +73,18 @@ cursor: pointer;
 	border-radius: 7px;
 	margin-top: 50px;
 	padding: 5px;
+}
+
+@media  (max-width: 435px)
+{
+	.title
+	{
+		display: none;
+	}
+	.header {
+
+		justify-content: flex-end;
+	}
+
+
 }

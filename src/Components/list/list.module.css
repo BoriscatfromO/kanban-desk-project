@@ -6,6 +6,7 @@
 	box-sizing: border-box;
 	margin: 15px;
 	box-shadow: 2px 2px 8px rgb(0 0 0 / 20%);
+
 }
 
 .listTitle {
@@ -19,6 +20,8 @@
 	padding: 8px;
 	border-radius: 8px;
 	text-decoration: none;
+	font-size: 18px;
+	font-family: 'Roboto-Regular', serif;
 }
 
 .task:hover {
@@ -37,8 +40,35 @@
 	color: #737373;
 	margin-top: 15px;
 	cursor: pointer;
+	font-size: 18px;
+	font-family: 'Roboto-Regular', serif;
 }
 
 .addButton:hover {
 	color: #000;
+}
+.select
+{
+	font-size: 18px;
+	font-family: 'Roboto-Regular', serif;
+	margin: 5px 0;
+    padding: 5px;
+	border-radius: 8px;
+	border-color: #DEDEDE;
+	width: 100%;
+}
+.option
+{
+	margin: 8px 0;
+    padding: 8px;
+	border-radius: 8px;
+	border-color: #DEDEDE;
+
+}
+.option:hover, .option:focus
+{
+	background-color: #DEDEDE;
+	font-family: 'Roboto-Regular', serif;
+	font-style: italic;
+	
 }

@@ -32,3 +32,14 @@
 .copy {
 	margin-left: auto;
 }
+
+@media  (max-width: 435px)
+{
+	.copy
+	{
+		display: none;
+	}
+	
+
+
+}

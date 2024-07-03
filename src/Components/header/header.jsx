@@ -13,7 +13,7 @@ function Header() {
 
 	return (
 		<header className={css.header}>
-			<h1 className={css.title}>Simple Kanban Board</h1>
+			<h1 className={css.title}>Awesome Kanban Board</h1>
             <div className={css.menu}>
               <img className={css.avatar} src={avatar} alt='avatar' />
               <button className={css.button} onClick={handleAddNewClick}>
